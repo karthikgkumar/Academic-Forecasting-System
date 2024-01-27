@@ -1,3 +1,4 @@
+import pathlib
 from setuptools import find_packages,setup
 from typing import List
 
@@ -15,13 +16,17 @@ def get_requirements(file_path:str)->List[str]:
             requirements.remove(HYPHEN_E_DOT)
     return requirements
 
-
+with open("README.md" ,"r") as f:
+    description=f.read()
 
 setup(
     name="Academic Forecasting System",
-    version="0.0.1",
+    version="0.0.3",
+    long_description=description,
+    long_description_content_type="text/markdown",
     author="Karthik G Kumar",
     author_email="karthikgkumar2002@gmail.com",
+    license="MIT license",
     packages=find_packages(),
     install_requires=get_requirements('requirements.txt')
 
